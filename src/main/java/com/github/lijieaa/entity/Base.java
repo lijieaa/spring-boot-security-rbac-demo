@@ -8,6 +8,9 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
 
+/**
+ * 所有实体父类
+ */
 @MappedSuperclass
 public class Base implements Serializable {
 

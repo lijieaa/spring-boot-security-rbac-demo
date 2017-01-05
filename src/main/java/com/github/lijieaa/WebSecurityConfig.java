@@ -12,10 +12,12 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable();
         http
                 .authorizeRequests()
-                .antMatchers("/", "/home").permitAll()
-                .anyRequest().authenticated()
+               // .antMatchers("/", "/home").permitAll()
+                .antMatchers("/**").permitAll()
+                //.anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -29,6 +31,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER");
+                .withUser("user").password("1").roles("USER");
     }
 }

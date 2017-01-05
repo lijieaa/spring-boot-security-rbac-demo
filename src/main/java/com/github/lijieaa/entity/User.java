@@ -3,11 +3,9 @@ package com.github.lijieaa.entity;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.sql.Timestamp;
 
 /**
- * Created by 95205 on 2017/1/5.
+ * 用户实体
  */
 @Entity
 public class User extends Base{

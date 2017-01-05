@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by 95205 on 2017/1/5.
+ * 角色实体
  */
 @Entity
 public class Role extends Base{
