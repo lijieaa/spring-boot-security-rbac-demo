@@ -68,3 +68,10 @@ INSERT INTO `user` (`id`, `create_time`, `update_time`, `username`, `password`) 
 INSERT INTO `role` (`id`, `use_id`, `create_time`, `update_time`, `role_name`, `role_description`) VALUES
    ('40288523596debef01596df0babf0000', '40288523596da8c901596da9c5390001', '2017-01-05 17:23:30', '2017-01-05 17:23:30', '超级管理员', '拥有所有的权限');
 
+
+
+INSERT INTO `authority` (`id`, `rol_id`, `create_time`, `update_time`, `authority_name`, `authority_description`) VALUES
+   ('40281281596eb30d01596eb71f850000', '40288523596debef01596df0babf0000', '2017-01-05 21:00:12', '2017-01-05 21:00:12', 'ROLE_ADD_USER', '添加用户'),
+   ('40281281596eb30d01596eb8917b0001', '40288523596debef01596df0babf0000', '2017-01-05 21:01:47', '2017-01-05 21:01:47', 'ROLE_UPDATE_USER', '更新用户'),
+   ('40281281596eb30d01596eb8e20e0002', '40288523596debef01596df0babf0000', '2017-01-05 21:02:07', '2017-01-05 21:02:07', 'ROLE_REMOVE_USER', '删除用户');
+
