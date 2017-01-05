@@ -1,8 +1,7 @@
 package com.github.lijieaa.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.util.Collection;
 
 /**
  * 角色实体
@@ -13,6 +12,18 @@ public class Role extends Base{
     private String useId;
     private String roleName;
     private String roleDescription;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "rol_id")
+    public Collection<Authority> getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(Collection<Authority> authorities) {
+        this.authorities = authorities;
+    }
+
+    private Collection<Authority> authorities;
 
 
     @Basic

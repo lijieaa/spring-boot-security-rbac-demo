@@ -1,8 +1,7 @@
 package com.github.lijieaa.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.util.Collection;
 
 /**
  * 用户实体
@@ -13,7 +12,17 @@ public class User extends Base{
     private String username;
     private String password;
 
+    private Collection<Role> roles;
 
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "use_id")
+    public Collection<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Collection<Role> roles) {
+        this.roles = roles;
+    }
 
     @Basic
     @Column(name = "username", nullable = true, insertable = true, updatable = true, length = 100)

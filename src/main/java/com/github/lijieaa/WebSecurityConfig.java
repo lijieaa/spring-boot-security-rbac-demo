@@ -1,6 +1,8 @@
 package com.github.lijieaa;
 
+import com.github.lijieaa.sec.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -15,9 +17,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http
                 .authorizeRequests()
-               // .antMatchers("/", "/home").permitAll()
-                .antMatchers("/**").permitAll()
-                //.anyRequest().authenticated()
+                .antMatchers("/", "/home").permitAll()
+                //.antMatchers("/**").permitAll()
+                .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -29,8 +31,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth
+        /*auth
                 .inMemoryAuthentication()
-                .withUser("user").password("1").roles("USER");
+                .withUser("user").password("1").roles("USER");*/
+
+        auth.userDetailsService(customUserDetailsService());
+    }
+
+    @Bean
+    public CustomUserDetailsService customUserDetailsService() {
+        return new CustomUserDetailsService();
     }
 }
