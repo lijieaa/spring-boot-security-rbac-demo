@@ -48,7 +48,8 @@ public class CustomUserDetailsService implements UserDetailsService {
             }
         }
 
-        CustomUserDetails customUserDetails=new CustomUserDetails(grantedAuthorities,user.getUsername(),user.getPassword());
+        CustomUserDetails customUserDetails=new CustomUserDetails(user.getUsername(),user.getPassword(),true, true, true, true,grantedAuthorities);
+
 
         return customUserDetails;
     }
