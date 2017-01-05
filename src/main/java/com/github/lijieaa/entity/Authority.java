@@ -13,7 +13,15 @@ public class Authority extends Base{
     private String authorityName;
     private String authorityDescription;
 
+    @Basic
+    @Column(name = "rol_id", nullable = true, insertable = true, updatable = true, length = 32)
+    public String getRolId() {
+        return rolId;
+    }
 
+    public void setRolId(String rolId) {
+        this.rolId = rolId;
+    }
 
     @Basic
     @Column(name = "authority_name", nullable = true, insertable = true, updatable = true, length = 100)
