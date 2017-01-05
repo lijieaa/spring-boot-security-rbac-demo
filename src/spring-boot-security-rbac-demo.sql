@@ -61,3 +61,10 @@ create table user
 alter table user comment '用户表';
 
 
+
+INSERT INTO `user` (`id`, `create_time`, `update_time`, `username`, `password`) VALUES
+   ('40288523596da8c901596da9c5390001', '2017-01-05 16:06:00', '2017-01-05 16:12:38', 'admin', '12');
+
+INSERT INTO `role` (`id`, `use_id`, `create_time`, `update_time`, `role_name`, `role_description`) VALUES
+   ('40288523596debef01596df0babf0000', '40288523596da8c901596da9c5390001', '2017-01-05 17:23:30', '2017-01-05 17:23:30', '超级管理员', '拥有所有的权限');
+
