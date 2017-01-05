@@ -3,8 +3,6 @@ package com.github.lijieaa.entity;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.sql.Timestamp;
 
 /**
  * 权限实体

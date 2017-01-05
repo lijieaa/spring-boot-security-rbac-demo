@@ -1,8 +1,8 @@
 package com.github.lijieaa.service;
 
 /**
- * 用户业务
+ * 角色业务
  */
-public interface UserService {
+public interface RoleService {
 
 }

@@ -1,0 +1,14 @@
+package com.github.lijieaa.service.impl;
+
+import com.github.lijieaa.entity.Role;
+import com.github.lijieaa.service.BaseService;
+import com.github.lijieaa.service.RoleService;
+import org.springframework.stereotype.Component;
+
+/**
+ *  角色业务实现类
+ */
+@Component
+public class RoleServiceImpl extends BaseService<Role,String> implements RoleService {
+
+}
