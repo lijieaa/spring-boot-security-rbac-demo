@@ -1,6 +1,8 @@
 package com.github.lijieaa.controller;
 
 import com.github.lijieaa.entity.User;
+import com.github.lijieaa.service.impl.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -9,6 +11,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("user")
 @RestController
 public class UserController extends BaseController<User,String>{
+
+    @Autowired
+    UserServiceImpl userService;
 
     /**
      * 添加用户
@@ -39,5 +44,15 @@ public class UserController extends BaseController<User,String>{
     @RequestMapping(value = "/",method = RequestMethod.DELETE)
     public void deleteUser(@RequestParam String id){
         this.delete(id);
+    }
+
+    /**
+     * 查询用户
+     * @param username 用户名
+     * @return
+     */
+    @RequestMapping(value = "/name",method = RequestMethod.GET)
+    public User findUserByUsername(@RequestParam String username){
+        return userService.findUserByUsername(username);
     }
 }
