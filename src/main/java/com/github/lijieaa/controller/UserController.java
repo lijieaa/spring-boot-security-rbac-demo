@@ -3,6 +3,8 @@ package com.github.lijieaa.controller;
 import com.github.lijieaa.entity.User;
 import com.github.lijieaa.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -20,6 +22,8 @@ public class UserController extends BaseController<User,String>{
      * @param user 用户实体
      * @return
      */
+    //@PreAuthorize("hasRole('ROLE_ADD_USER')")
+    @Secured("ROLE_ADD_USER")
     @RequestMapping(value = "/",method = RequestMethod.POST)
     public User addUser(@RequestBody User user){
         return this.add(user);
