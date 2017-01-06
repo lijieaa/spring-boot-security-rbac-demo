@@ -22,7 +22,7 @@ public class UserController extends BaseController<User,String>{
      * @param user 用户实体
      * @return
      */
-    //@PreAuthorize("hasRole('ROLE_ADD_USER')")
+
     @Secured("ROLE_ADD_USER")
     @RequestMapping(value = "/",method = RequestMethod.POST)
     public User addUser(@RequestBody User user){
@@ -34,6 +34,7 @@ public class UserController extends BaseController<User,String>{
      * @param user 用户实体
      * @return
      */
+    @PreAuthorize("hasRole('ROLE_UPDATE_USER')")
     @RequestMapping(value = "/",method = RequestMethod.PUT)
     public User updateUser(@RequestBody User user){
         return this.add(user);
