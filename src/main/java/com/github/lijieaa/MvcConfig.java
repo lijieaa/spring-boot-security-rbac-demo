@@ -21,7 +21,10 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
-        super.configureContentNegotiation(configurer);
+        //super.configureContentNegotiation(configurer);
+        configurer
+                .mediaType("xml", MediaType.APPLICATION_XML)
+                .mediaType("json", MediaType.APPLICATION_JSON);
     }
 
     @Override
