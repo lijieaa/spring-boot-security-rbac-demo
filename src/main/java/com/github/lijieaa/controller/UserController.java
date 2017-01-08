@@ -23,7 +23,8 @@ public class UserController extends BaseController<User,String>{
      * @return
      */
 
-    @Secured("ROLE_ADD_USER")
+    //@Secured("ROLE_ADD_USER")
+    @PreAuthorize("hasRole('ROLE_ADD_USER')")
     @RequestMapping(value = "/",method = RequestMethod.POST)
     public User addUser(@RequestBody User user){
         return this.add(user);

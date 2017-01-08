@@ -5,6 +5,7 @@ import com.github.lijieaa.entity.Role;
 import com.github.lijieaa.entity.User;
 import com.github.lijieaa.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -49,6 +50,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         CustomUserDetails customUserDetails=new CustomUserDetails(user.getUsername(),user.getPassword(),true, true, true, true,grantedAuthorities);
 
+       // new RoleHierarchyImpl
 
         return customUserDetails;
     }

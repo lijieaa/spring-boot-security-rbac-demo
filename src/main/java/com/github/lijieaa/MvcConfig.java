@@ -22,7 +22,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     /**
      * 自定义异常页
      */
-    @Bean
+    /*@Bean
     public EmbeddedServletContainerCustomizer containerCustomizer() {
 
         return (container -> {
@@ -31,6 +31,6 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
             ErrorPage error500Page = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/500.html");
             container.addErrorPages(error401Page, error404Page, error500Page);
         });
-    }
+    }*/
 
 }

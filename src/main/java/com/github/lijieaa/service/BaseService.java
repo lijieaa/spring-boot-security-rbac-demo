@@ -33,4 +33,23 @@ public class BaseService<T,ID extends Serializable> {
     public void delete(ID id){
         crudRepository.delete(id);
     };
+
+
+    /**
+     * 获取实体
+     * @param id 实体对象
+     * @return
+     */
+    public T get(ID id){
+        return crudRepository.findOne(id);
+    }
+
+    /**
+     * 获取所有实体
+     * @param
+     * @return
+     */
+    public Iterable<T> findAll(){
+        return crudRepository.findAll();
+    }
 }

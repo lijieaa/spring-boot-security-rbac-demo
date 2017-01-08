@@ -1,11 +1,13 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2017/1/4 21:18:05                            */
+/* Created on:     2017/1/7 21:26:42                            */
 /*==============================================================*/
 
 
 
 drop table if exists authority;
+
+drop table if exists hierarchy;
 
 drop table if exists role;
 
@@ -28,6 +30,20 @@ create table authority
 );
 
 alter table authority comment '权限表';
+
+/*==============================================================*/
+/* Table: hierarchy                                             */
+/*==============================================================*/
+create table hierarchy
+(
+   id                   varchar(32) not null comment '主键，使用UUID',
+   create_time          datetime comment '创建时间',
+   update_time          datetime comment '更新时间',
+   hierarchy_content    text not null comment '权限表达式内容',
+   primary key (id)
+);
+
+alter table hierarchy comment '权限继承';
 
 /*==============================================================*/
 /* Table: role                                                  */
@@ -62,16 +78,5 @@ alter table user comment '用户表';
 
 
 
-INSERT INTO `user` (`id`, `create_time`, `update_time`, `username`, `password`) VALUES
-   ('40288523596da8c901596da9c5390001', '2017-01-05 16:06:00', '2017-01-05 16:12:38', 'admin', '12');
 
-INSERT INTO `role` (`id`, `use_id`, `create_time`, `update_time`, `role_name`, `role_description`) VALUES
-   ('40288523596debef01596df0babf0000', '40288523596da8c901596da9c5390001', '2017-01-05 17:23:30', '2017-01-05 17:23:30', '超级管理员', '拥有所有的权限');
-
-
-
-INSERT INTO `authority` (`id`, `rol_id`, `create_time`, `update_time`, `authority_name`, `authority_description`) VALUES
-   ('40281281596eb30d01596eb71f850000', '40288523596debef01596df0babf0000', '2017-01-05 21:00:12', '2017-01-05 21:00:12', 'ROLE_ADD_USER', '添加用户'),
-   ('40281281596eb30d01596eb8917b0001', '40288523596debef01596df0babf0000', '2017-01-05 21:01:47', '2017-01-05 21:01:47', 'ROLE_UPDATE_USER', '更新用户'),
-   ('40281281596eb30d01596eb8e20e0002', '40288523596debef01596df0babf0000', '2017-01-05 21:02:07', '2017-01-05 21:02:07', 'ROLE_REMOVE_USER', '删除用户');
 
