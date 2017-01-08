@@ -2,6 +2,7 @@ package com.github.lijieaa.entity;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Set;
 
 /**
  * 用户实体
@@ -12,7 +13,19 @@ public class User extends Base{
     private String username;
     private String password;
 
-    private Collection<Role> roles;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_authority", joinColumns = { @JoinColumn(name = "use_id") }, inverseJoinColumns = { @JoinColumn(name = "aut_id") })
+    public Set<Authority> getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(Set<Authority> authorities) {
+        this.authorities = authorities;
+    }
+
+    private Set<Authority> authorities;
+
+    /*private Collection<Role> roles;
 
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "use_id")
@@ -22,7 +35,7 @@ public class User extends Base{
 
     public void setRoles(Collection<Role> roles) {
         this.roles = roles;
-    }
+    }*/
 
     @Basic
     @Column(name = "username", nullable = true, insertable = true, updatable = true, length = 100)
